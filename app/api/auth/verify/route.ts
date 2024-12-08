@@ -4,7 +4,6 @@ import { prisma } from '@/lib/prisma'
 export async function POST(req: Request) {
   try {
     const { email, otp } = await req.json()
-    console.log('Verifying:', { email, otp }) // Debug log
 
     // Find valid token
     const verificationToken = await prisma.OTP.findFirst({
