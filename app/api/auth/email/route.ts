@@ -20,15 +20,15 @@ export async function POST(req: Request) {
     }
 
     // Generate OTP
-    const otp = Math.floor(100000 + Math.random() * 900000).toString()
-    console.log('Generated OTP:', otp) // Debug log
+    const OTP = Math.floor(100000 + Math.random() * 900000).toString()
+    console.log('Generated OTP:', OTP) // Debug log
     
     try {
       // Store OTP in database with expiry
       await prisma.OTP.create({  // Note the lowercase 'o' here
         data: {
           identifier: email,
-          token: otp,
+          token: OTP,
           expires: new Date(Date.now() + 10 * 60 * 1000)
         }
       })
@@ -46,7 +46,7 @@ export async function POST(req: Request) {
         subject: 'Your ISB Dating App Verification Code',
         html: `
           <h1>Welcome to ISB Dating App</h1>
-          <p>Your verification code is: <strong>${otp}</strong></p>
+          <p>Your verification code is: <strong>${OTP}</strong></p>
           <p>This code will expire in 10 minutes.</p>
         `
       })

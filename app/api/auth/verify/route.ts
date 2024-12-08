@@ -3,13 +3,13 @@ import { prisma } from '@/lib/prisma'
 
 export async function POST(req: Request) {
   try {
-    const { email, otp } = await req.json()
+    const { email, OTP } = await req.json()
 
     // Find valid token
     const verificationToken = await prisma.OTP.findFirst({
       where: {
         identifier: email,
-        token: otp,
+        token: OTP,
         expires: { gt: new Date() }
       }
     })
