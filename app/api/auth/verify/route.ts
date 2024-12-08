@@ -3,10 +3,10 @@ import { prisma } from '@/lib/prisma'
 
 export async function POST(req: Request) {
   try {
-    const { email, otp } = await req.json()  // Changed OTP to otp
+    const { email, otp } = await req.json()
 
     // Find valid token
-    const verificationToken = await prisma.OTP.findFirst({  // Changed OTP to oTP
+    const verificationToken = await prisma.oTP.findFirst({
       where: {
         identifier: email,
         token: otp,
@@ -35,7 +35,7 @@ export async function POST(req: Request) {
     })
 
     // Delete used token
-    await prisma.oTP.delete({  // Changed OTP to oTP
+    await prisma.oTP.delete({
       where: { id: verificationToken.id }
     })
 

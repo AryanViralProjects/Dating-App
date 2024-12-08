@@ -29,11 +29,14 @@ export async function PUT(req: Request) {
     }
 
     const body = await req.json()
-    const { name, age, gender, interestedIn, program, photoUrl } = body
+    const { name, photoUrl } = body
 
     const updatedProfile = await prisma.user.update({
       where: { email: session.user.email },
-      data: { name, age, gender, interestedIn, program, photoUrl }
+      data: { 
+        name,
+        image: photoUrl
+      }
     })
 
     return NextResponse.json(updatedProfile)
