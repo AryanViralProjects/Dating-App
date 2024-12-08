@@ -35,7 +35,7 @@ export default function SetupProfilePage() {
       <div className="w-full max-w-md space-y-8 p-8 bg-white rounded-lg shadow-xl">
         <div className="text-center">
           <h2 className="mt-6 text-3xl font-bold text-isb-blue">Set Up Your Profile</h2>
-          <p className="mt-2 text-sm text-gray-600">Let's get to know you better</p>
+          <p className="mt-2 text-sm text-gray-600">Let&apos;s get to know you better</p>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="space-y-4 rounded-md shadow-sm">

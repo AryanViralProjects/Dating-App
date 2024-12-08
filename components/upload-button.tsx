@@ -3,9 +3,13 @@
 import { UploadButton as UploadThingButton } from "@uploadthing/react";
 import { OurFileRouter } from "@/app/api/uploadthing/core";
 
+interface UploadResponse {
+  url: string;
+}
+
 export default function UploadButton() {
   return (
-    <UploadThingButton<OurFileRouter, any>
+    <UploadThingButton<OurFileRouter, UploadResponse>
       endpoint="imageUploader"
       onClientUploadComplete={(res) => {
         console.log("Files: ", res);

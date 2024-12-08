@@ -15,8 +15,9 @@ export async function GET() {
     })
 
     return NextResponse.json(profile)
-  } catch (error) {
-    return new NextResponse("Internal Error", { status: 500 })
+  } catch (err) {
+    console.error(err)
+    return new NextResponse("Internal Server Error", { status: 500 })
   }
 }
 
@@ -36,7 +37,8 @@ export async function PUT(req: Request) {
     })
 
     return NextResponse.json(updatedProfile)
-  } catch (error) {
-    return new NextResponse("Internal Error", { status: 500 })
+  } catch (err) {
+    console.error(err)
+    return new NextResponse("Internal Server Error", { status: 500 })
   }
 }
