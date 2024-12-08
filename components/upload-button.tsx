@@ -9,7 +9,7 @@ interface UploadResponse {
 
 export default function UploadButton() {
   return (
-    <UploadThingButton<OurFileRouter, UploadResponse>
+    <UploadThingButton<OurFileRouter, "imageUploader">
       endpoint="imageUploader"
       onClientUploadComplete={(res) => {
         console.log("Files: ", res);
