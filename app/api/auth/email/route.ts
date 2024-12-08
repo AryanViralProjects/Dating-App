@@ -1,3 +1,4 @@
+// Updated: March 19, 2024
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { prisma } from '@/lib/prisma'
