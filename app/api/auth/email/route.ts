@@ -25,7 +25,7 @@ export async function POST(req: Request) {
     
     try {
       // Store OTP in database with expiry
-      await prisma.OTP.create({  // Changed from OTP to oTP
+      await prisma.oTP.create({  // Changed from OTP to oTP to match schema
         data: {
           identifier: email,
           token: otp,
