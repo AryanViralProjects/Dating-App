@@ -25,7 +25,7 @@ export async function POST(req: Request) {
     
     try {
       // Store OTP in database with expiry
-      await prisma.oTP.create({
+      await prisma.oTP.create({  // Note the lowercase 'o' here
         data: {
           identifier: email,
           token: otp,
