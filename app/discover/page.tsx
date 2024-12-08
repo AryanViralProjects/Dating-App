@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Heart, X, Star } from 'lucide-react'
 import { Button } from "@/components/ui/button"
+import { BottomNav } from '@/components/bottom-nav'
 
 // Mock data for demonstration
 const mockProfiles = [
@@ -43,7 +44,7 @@ export default function DiscoverPage() {
   }
 
   return (
-    <main className="min-h-screen bg-background pb-16">
+    <main className="min-h-screen bg-gray-100 pb-16">
       <div className="container max-w-md mx-auto pt-4 px-4">
         <h1 className="text-2xl font-bold text-isb-blue mb-4">Discover</h1>
 
@@ -87,26 +88,27 @@ export default function DiscoverPage() {
           <Button
             onClick={() => swipe('left')}
             size="icon"
-            className="h-14 w-14 rounded-full bg-background border-2 border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground"
+            className="h-14 w-14 rounded-full bg-white border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
           >
             <X className="h-6 w-6" />
           </Button>
           <Button
             onClick={() => swipe('super')}
             size="icon"
-            className="h-14 w-14 rounded-full bg-background border-2 border-isb-blue text-isb-blue hover:bg-isb-blue hover:text-white"
+            className="h-14 w-14 rounded-full bg-white border-2 border-isb-gold text-isb-gold hover:bg-isb-gold hover:text-white"
           >
             <Star className="h-6 w-6" />
           </Button>
           <Button
             onClick={() => swipe('right')}
             size="icon"
-            className="h-14 w-14 rounded-full bg-background border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white"
+            className="h-14 w-14 rounded-full bg-white border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white"
           >
             <Heart className="h-6 w-6" />
           </Button>
         </div>
       </div>
+      <BottomNav />
     </main>
   )
 }

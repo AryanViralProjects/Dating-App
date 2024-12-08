@@ -11,22 +11,13 @@ export default function SetupProfilePage() {
   const [name, setName] = useState('')
   const [age, setAge] = useState('')
   const [program, setProgram] = useState('')
-  const [gender, setGender] = useState('')
-  const [interestedIn, setInterestedIn] = useState('')
   const [photo, setPhoto] = useState<File | null>(null)
   const router = useRouter()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     // Here you would typically handle the profile setup logic
-    console.log('Profile setup:', { 
-      name, 
-      age, 
-      program, 
-      gender,
-      interestedIn,
-      photo 
-    })
+    console.log('Profile setup:', { name, age, program, photo })
     router.push('/discover')
   }
 
@@ -35,11 +26,10 @@ export default function SetupProfilePage() {
       <div className="w-full max-w-md space-y-8 p-8 bg-white rounded-lg shadow-xl">
         <div className="text-center">
           <h2 className="mt-6 text-3xl font-bold text-isb-blue">Set Up Your Profile</h2>
-          <p className="mt-2 text-sm text-gray-600">Let&apos;s get to know you better</p>
+          <p className="mt-2 text-sm text-gray-600">Let's get to know you better</p>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="space-y-4 rounded-md shadow-sm">
-            {/* Existing fields */}
             <div>
               <Label htmlFor="name">Full Name</Label>
               <Input
@@ -52,7 +42,6 @@ export default function SetupProfilePage() {
                 className="mt-1"
               />
             </div>
-            
             <div>
               <Label htmlFor="age">Age</Label>
               <Input
@@ -65,35 +54,6 @@ export default function SetupProfilePage() {
                 className="mt-1"
               />
             </div>
-
-            {/* Gender Selection */}
-            <div>
-              <Label>Your Gender</Label>
-              <Select required value={gender} onValueChange={setGender}>
-                <SelectTrigger className="mt-1">
-                  <SelectValue placeholder="Select your gender" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="male">Male</SelectItem>
-                  <SelectItem value="female">Female</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            {/* Interest Selection */}
-            <div>
-              <Label>Interested In</Label>
-              <Select required value={interestedIn} onValueChange={setInterestedIn}>
-                <SelectTrigger className="mt-1">
-                  <SelectValue placeholder="Select gender preference" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="male">Male</SelectItem>
-                  <SelectItem value="female">Female</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
             <div>
               <Label htmlFor="program">Program at ISB</Label>
               <Select value={program} onValueChange={setProgram}>
@@ -101,14 +61,13 @@ export default function SetupProfilePage() {
                   <SelectValue placeholder="Select your program" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="ivi">iVi</SelectItem>
+                  <SelectItem value="mba">MBA</SelectItem>
                   <SelectItem value="pgp">PGP</SelectItem>
                   <SelectItem value="mfab">MFAB</SelectItem>
                   <SelectItem value="pgpmax">PGPMax</SelectItem>
                 </SelectContent>
               </Select>
             </div>
-
             <div>
               <Label htmlFor="photo">Profile Photo</Label>
               <Input
@@ -116,7 +75,6 @@ export default function SetupProfilePage() {
                 name="photo"
                 type="file"
                 accept="image/*"
-                required
                 onChange={(e) => setPhoto(e.target.files?.[0] || null)}
                 className="mt-1"
               />
@@ -133,3 +91,4 @@ export default function SetupProfilePage() {
     </div>
   )
 }
+

@@ -1,23 +1,8 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
-  content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-  ],
+  content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
   theme: {
     extend: {
-      borderColor: {
-        border: 'hsl(var(--border))',
-      },
-      backgroundColor: {
-        background: 'hsl(var(--background))',
-      },
-      textColor: {
-        foreground: 'hsl(var(--foreground))',
-      },
       colors: {
         isb: {
           blue: "#0054A6", // Pantone 2945C Blue
@@ -40,6 +25,6 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 }
 

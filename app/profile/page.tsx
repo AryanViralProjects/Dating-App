@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Progress } from "@/components/ui/progress"
+import { BottomNav } from '@/components/bottom-nav'
 import { Settings, Shield } from 'lucide-react'
 
 export default function ProfilePage() {
@@ -17,14 +18,14 @@ export default function ProfilePage() {
   const profileCompletion = 80 // This would be calculated based on filled fields
 
   return (
-    <main className="min-h-screen bg-background pb-16">
+    <main className="min-h-screen bg-gray-100 pb-16">
       <div className="container max-w-md mx-auto pt-4 px-4">
         <h1 className="text-2xl font-bold text-isb-blue mb-4">Your Profile</h1>
 
         <div className="mb-6">
           <Label>Profile Completion</Label>
           <Progress value={profileCompletion} className="mt-2" />
-          <p className="text-sm text-muted-foreground mt-1">{profileCompletion}% complete</p>
+          <p className="text-sm text-gray-600 mt-1">{profileCompletion}% complete</p>
         </div>
 
         <div className="space-y-6">
@@ -64,7 +65,7 @@ export default function ProfilePage() {
               className="mt-1"
             />
           </div>
-          <Button className="w-full bg-isb-blue hover:bg-isb-blue/90 text-white">
+          <Button className="w-full bg-isb-blue hover:bg-isb-blue/90">
             Save Changes
           </Button>
         </div>
@@ -80,6 +81,7 @@ export default function ProfilePage() {
           </Button>
         </div>
       </div>
+      <BottomNav />
     </main>
   )
 }
